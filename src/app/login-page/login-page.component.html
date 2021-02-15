@@ -1,0 +1,34 @@
+<!-- <div class="card col-lg-2" style=" background-color: #202224;">
+  <div class="card-body">
+    <p>Register</p>
+    <input type="text" placeholder="your mail" >
+    <input type="text" placeholder="your password" >
+    <input type="button" value="Register"  >
+  </div>
+  <div class="card-body">
+    <p>Login</p>
+    <input type="text" placeholder="your mail" >
+    <input type="text" placeholder="your password" >
+    <input type="button" value="Login"  >
+  </div>
+</div> -->
+
+
+
+<div class="login-page">
+  <div class="form">
+    <form class="register-form" *ngIf="!Register">
+      <input type="text" placeholder="email address" [(ngModel)]="NewUseremail"/>
+      <input type="password" placeholder="password" [(ngModel)]="NewUserpassword"/>
+
+      <button (click)="sendNewUser()">create</button>
+      <p class="message">Already registered? <a (click)="AlreadyRegister()">Sign In</a></p>
+    </form>
+    <form class="login-form" *ngIf="Register">
+      <input type="text" placeholder="email address" [(ngModel)]="email"/>
+      <input type="password" placeholder="password" [(ngModel)]="password"/>
+      <button (click)="LoginUser()">login</button>
+      <p class="message">Not registered? <a (click)="NotRegister()">Create an account</a></p>
+    </form>
+  </div>
+</div>
