@@ -39,21 +39,21 @@
     <input type="text" placeholder="enter amount not in fiat " value="Amount" [(ngModel)]="Amount">
     <input type="button" value="click for add"  (click)="receivinfo()">
     </div> -->
-    <div class="card col-lg-2" style=" background-color: #202224;">
-      <div class="card-body">
+    <div class="form col-lg-3">
+      <form class="add-token-form">
         <input list="colors" placeholder="Select your token" [(ngModel)]="selectToken">
         <datalist id="colors">
           <option *ngFor="let name of CryptoName" >{{name.symbol.toUpperCase()}}</option>
         </datalist>
         <input type="text" placeholder="Enter amount not in fiat " value="Amount" [(ngModel)]="Amount">
-        <input type="button" value="Add"  (click)="receivinfo()">
-      </div>
+        <button (click)="receivinfo()">Add Token</button>
+      </form>
     </div>
-
+    <div class="col-lg-6"></div>
     <div class="card col-lg-3" style=" background-color: #202224;">
       <div class="card-body">
         <h5 class="card-title" style="color: #832e83;">Your Account</h5>
-        <p class="card-text" style="color: #c1c7cd;">Name : {{ userEmail }}<br>Total Amount : {{montantTotalDef}} €</p>
+        <p class="card-text" style="color: #c1c7cd;">Email : {{ userEmail }}<br>Total Amount : {{montantTotalDef}} €</p>
         <button (click)="logOut()" class="btn" style="background-color: #832e83; color: white;">LogOut</button><br>
         <a href="https://nomics.com" style="font-size: 10px;">Crypto Market Cap & Pricing Data Provided By Nomics</a>
 
