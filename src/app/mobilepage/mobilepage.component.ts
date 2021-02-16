@@ -32,6 +32,8 @@ montantTotalDef: number;
       .valueChanges()
       .subscribe(r => {
         this.cryptoWallet = r;
+        setInterval(() => {
+          this.montantTotal = 0;
         r.forEach((crypto: any) => {
           if (crypto) {
           this.http.get('https://api.nomics.com/v1/currencies/ticker?key=eb2ee570072c49c57d6f54c3f7a5cabb&ids=' + crypto.cryptoName +'&interval=1d,7d,30d&convert=EUR')
@@ -66,6 +68,7 @@ montantTotalDef: number;
           });
         }
         });
+      }, 1500);
       });
 
     this.http.get<any>('https://api.coingecko.com/api/v3/coins/list?include_platform=false')

@@ -32,6 +32,7 @@ export class LoginPageComponent implements OnInit {
 
   LoginUser(){
     this.authenticationService.SignIn(this.email, this.password)
+    // console.log(this.authenticationService.getHResponse());
   }
 
 }

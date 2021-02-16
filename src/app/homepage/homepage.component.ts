@@ -63,7 +63,7 @@ export class HomepageComponent implements OnInit {
       .valueChanges()
       .subscribe(r => {
         this.cryptoWallet = r;
-        console.log(this.cryptoWallet);
+        // console.log(this.cryptoWallet);
         setInterval(() => {
           this.montantTotal = 0;
         r.forEach((crypto: any) => {

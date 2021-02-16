@@ -17,6 +17,7 @@ export class AuthenticationService {
         window.alert("You have been successfully registered!");
         console.log(result.user)
       }).catch((error) => {
+
         window.alert(error.message)
       })
   }

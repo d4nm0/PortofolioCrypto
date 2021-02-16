@@ -16,7 +16,7 @@ exports.config = {
     browserName: 'chrome'
   },
   directConnect: true,
-  baseUrl: 'https://0x1ca5d52d1feb3af27acc5295603f2932ae9892fe.000webhostapp.com/',
+  baseUrl: 'https://0x1ca5d52d1feb3af27acc5295603f2932ae9892fe.000webhostapp.com',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
