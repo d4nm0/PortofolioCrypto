@@ -59,11 +59,12 @@ export class HomepageComponent implements OnInit {
     // });
 
     console.log(localStorage.getItem('user'));
+    console.log('ici');
     this.db.list('cryptoList', ref => ref.orderByChild('user').equalTo(localStorage.getItem('user')))
       .valueChanges()
       .subscribe(r => {
         this.cryptoWallet = r;
-        // console.log(this.cryptoWallet);
+        console.log(this.cryptoWallet);
         setInterval(() => {
           this.montantTotal = 0;
         r.forEach((crypto: any) => {

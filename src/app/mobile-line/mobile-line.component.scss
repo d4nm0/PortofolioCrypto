@@ -1,0 +1,47 @@
+.colorRed {
+  color: rgb(255, 0, 21)
+}
+
+.colorGreen {
+  color: rgb(0, 224, 142)
+}
+
+.n-h12 {
+  height: 13px;
+}
+
+img, svg {
+  vertical-align: baseline !important
+}
+
+#myAmount{
+  color: #424344;
+}
+
+.loader{
+  margin: 0 0 2em;
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*
+  Set the color of the icon
+*/
+svg path,
+svg rect{
+  fill: #FF6700;
+}
+
+
+.Loader{
+  background-color: grey;
+  color: grey;
+  border-radius: 5px;
+  min-height: 20px;
+}
+

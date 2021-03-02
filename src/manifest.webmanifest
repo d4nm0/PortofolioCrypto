@@ -1,0 +1,42 @@
+{
+  "name": "CryptoTrack",
+  "short_name": "CryptoTrack",
+  "theme_color": "#18191A",
+  "background_color": "#18191A",
+  "display": "fullscreen",
+  "scope": "./",
+  "orientation": "portrait",
+  "start_url": "./index.html",
+  "icons": [
+    {
+      "src": "assets/icons/72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}

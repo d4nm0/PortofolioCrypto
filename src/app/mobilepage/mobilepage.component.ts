@@ -28,9 +28,11 @@ montantTotalDef: number;
   constructor(private http : HttpClient, public db: AngularFireDatabase,private router: Router) { }
 
   ngOnInit(): void {
+    console.log('ngoninit');
     this.db.list('cryptoList', ref => ref.orderByChild('user').equalTo(localStorage.getItem('user')))
       .valueChanges()
       .subscribe(r => {
+        console.log(r);
         this.cryptoWallet = r;
         setInterval(() => {
           this.montantTotal = 0;

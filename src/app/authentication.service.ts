@@ -12,7 +12,7 @@ export class AuthenticationService {
   constructor(public afAuth: AngularFireAuth, private router: Router,) { }
 
   SignUp(email, password) {
-    return this.afAuth.createUserWithEmailAndPassword(email, password)
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         window.alert("You have been successfully registered!");
         console.log(result.user)
@@ -24,11 +24,11 @@ export class AuthenticationService {
 
   // Sign in with email/password
   SignIn(email, password) {
-    return this.afAuth.signInWithEmailAndPassword(email, password)
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
          this.router.navigate(['connected']);
         console.log('connecter')
-        this.afAuth.onAuthStateChanged((user) => {
+        this.afAuth.auth.onAuthStateChanged((user) => {
           if (user) {
             // User logged in already or has just logged in.
             console.log(user);

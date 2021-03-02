@@ -11,9 +11,13 @@ export class CalculSeeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (window.screen.width < 780) { // 768px portrait
-      this.mobile = true;
+    if (window.screen.width) {
+      console.log(window.screen.width);
+      if (window.screen.width < 780) { // 768px portrait
+        this.mobile = true;
+      }
     }
+
   }
 
 }
