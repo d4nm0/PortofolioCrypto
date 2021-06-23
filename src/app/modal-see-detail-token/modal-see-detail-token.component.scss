@@ -13,3 +13,15 @@
 img, svg {
   vertical-align: baseline !important
 }
+
+.cls-1 {
+  fill: #202224;
+}
+#canvas:hover #lid {
+  transform: translate(0,-3px);
+  -webkit-transform: translate(0,-3px); /** Safari & Chrome **/
+  -o-transform: translate(0,-3px); /** Opera **/
+  -moz-transform: translate(0,-3px); /** Firefox **/
+  transition-duration: .5s;
+  cursor: pointer;
+}

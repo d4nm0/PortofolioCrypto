@@ -58,15 +58,15 @@ export class HomepageComponent implements OnInit {
     //   console.log(this.EURmontant);
     // });
 
-    console.log(localStorage.getItem('user'));
-    console.log('ici');
+    // console.log(localStorage.getItem('user'));
+    // console.log('ici');
     this.db.list('cryptoList', ref => ref.orderByChild('user').equalTo(localStorage.getItem('user')))
       .valueChanges()
       .subscribe(r => {
         this.cryptoWallet = r;
-        console.log(this.cryptoWallet);
+        // console.log(this.cryptoWallet);
         setInterval(() => {
-          this.montantTotal = 0;
+          // this.montantTotal = 0;
         r.forEach((crypto: any) => {
           if (crypto) {
           this.http.get('https://api.nomics.com/v1/currencies/ticker?key=eb2ee570072c49c57d6f54c3f7a5cabb&ids=' + crypto.cryptoName +'&interval=1d,7d,30d&convert=EUR')
@@ -80,10 +80,10 @@ export class HomepageComponent implements OnInit {
               this.jsonString = JSON.stringify(crypto);
               crypto["montant"] = this.EURmontant.toFixed(2);
               crypto["Price"] = this.PriceMtn.toFixed(4);
-              this.montantTotal += this.EURmontant;
+              // this.montantTotal += this.EURmontant;
 
               setTimeout(() => {
-              this.http.get('https://api.nomics.com/v1/currencies/ticker?key=eb2ee570072c49c57d6f54c3f7a5cabb&ids=' + crypto.cryptoName +'&interval=1d,7d,30d&convert=EUR')
+              this.http.get('https://api.nomics.com/v1/currencies/ticker?key=7bf8922c345ff770ff884abd97792553&ids=' + crypto.cryptoName +'&interval=1d,7d,30d&convert=EUR')
               .subscribe(Response => {
                 if(Response){
                   if (Response[0]['1d'] && Response[0]['7d'] && Response[0]['30d']) {
@@ -97,7 +97,7 @@ export class HomepageComponent implements OnInit {
             },1500);
             }
             if (!stop){
-              this.montantTotalDef = parseFloat(this.montantTotal.toFixed(2));
+              // this.montantTotalDef = parseFloat(this.montantTotal.toFixed(2));
               stop = true;
             }
 

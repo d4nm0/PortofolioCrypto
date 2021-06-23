@@ -45,3 +45,65 @@ svg rect{
   min-height: 20px;
 }
 
+
+.box-placeholder {
+  font-size: 0;
+  line-height: 0;
+
+  .text {
+    display: inline-block;
+    background-color: #e2e2e2;
+    height: 12px;
+    border-radius: 100px;
+    margin: 5px 0;
+    min-width: 70px;
+    opacity: .1;
+    animation: fading 1.5s infinite;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.link {
+      background-color: var(--blue);
+      opacity: .4;
+    }
+
+    &.line {
+      width: 100%;
+    }
+
+    &.category {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+  }
+
+  h4.text {
+    height: 20px;
+    margin: 3px 0;
+    opacity: .2;
+  }
+
+  .image {
+    background-color: #f9f9f9;
+  }
+}
+
+@keyframes fading {
+  0% {
+    opacity: .1;
+  }
+
+  50% {
+    opacity: .2;
+  }
+
+  100% {
+    opacity: .1;
+  }
+}

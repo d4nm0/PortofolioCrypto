@@ -14,29 +14,46 @@
 </div> -->
 
 
-
+<!-- <app-chart-token></app-chart-token> -->
 <div class="login-page">
   <div class="form">
     <form class="register-form" *ngIf="!Register">
-      <input type="text" placeholder="email address" [(ngModel)]="NewUseremail"/>
-      <input type="password" placeholder="password" [(ngModel)]="NewUserpassword"/>
+      <input type="text" placeholder="Email" [(ngModel)]="NewUseremail"/>
+      <input type="password" placeholder="Password" [(ngModel)]="NewUserpassword"/>
+      <input type="password" placeholder=" Confirm Password" [(ngModel)]="NewSecondUserpassword"/>
 
       <button (click)="sendNewUser()">create</button>
       <p class="message">Already registered? <a (click)="AlreadyRegister()">Sign In</a></p>
     </form>
     <form class="login-form" *ngIf="Register">
-      <input type="text" placeholder="email address" [(ngModel)]="email"/>
-      <input type="password" placeholder="password" [(ngModel)]="password"/>
+      <input type="text" placeholder="Email" [(ngModel)]="email"/>
+      <input type="password" placeholder="Password" [(ngModel)]="password"/>
       <button (click)="LoginUser()">login</button>
       <p class="message">Not registered? <a (click)="NotRegister()">Create an account</a></p>
     </form>
   </div>
   <div class="form" style="text-align: left;">
-    <h2 style="color: white; display: inline;">What's New </h2><p style="color: grey; display: inline;">V 2021.03.02</p>
+    <h2 style="color: white; display: inline;">What's New </h2><p style="color: grey; display: inline;">V 2021.03.14</p>
     <p style="color: white;">In this update :<br>
+      - Add chart value for token in mobile view<br></p>
+    <h6 style="color: grey; display: inline;">V.2021.03.05</h6>
+    <p style="color: white;">
+      - Add confirm Password in register section<br>
+      - Add delete button in mobile view <br>
+      - Change button design to delete line in computer view <br></p>
+    <h6 style="color: grey; display: inline;">V.2021.03.04</h6>
+    <p style="color: white;">
+      - Add modal to display connection or registration status<br></p>
+    <h6 style="color: grey; display: inline;">V.2021.03.03</h6>
+    <p style="color: white;">
+      - Change of the data loader<br></p>
+    <h6 style="color: grey; display: inline;">V.2021.03.02</h6>
+    <p style="color: white;">
       - Fix bug on dashboard page in Mobile Phone<br>
       - Add Notification <br>
       - Add Loader in line in Mobile Phone</p>
   </div>
 </div>
+
+
 

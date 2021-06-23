@@ -5,7 +5,12 @@ body{
   background-color: #18191a  !important;
   height: 100vh;
   font-family: Roboto,sans-serif;
+  // overflow: hidden;
 }
+
+::-webkit-scrollbar {
+  display: none;
+  }
 
 input {
   background-color: #181918;
@@ -23,3 +28,6 @@ div> a> img {
   display: none;
 }
 
+.modal-content {
+  background-color: #232323 !important;
+}

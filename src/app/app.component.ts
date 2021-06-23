@@ -17,6 +17,8 @@ export class AppComponent implements OnInit  {
   mobile= false;
   displayToken: string;
 
+
+
   constructor(private router: Router, private messagingService: MessagingService, updates: SwUpdate, push: SwPush) {
     updates.available.subscribe(_ => updates.activateUpdate().then(() => {
       console.log('reload for update');

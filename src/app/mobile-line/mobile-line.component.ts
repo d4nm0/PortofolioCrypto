@@ -17,7 +17,7 @@ export class MobileLineComponent implements OnInit {
   }
 
   EditToken(e: any) {
-    console.log(e);
+    // console.log(e);
     const EditToken = this.modalService.open(
       ModalSeeDetailTokenComponent,
       {

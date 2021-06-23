@@ -4,24 +4,39 @@
     <table class="table col-lg-12">
       <thead style="border-top: none; background-color: #2f3134;">
         <tr >
-          <th style="color: #777a80;" scope="col-1">CryptoName</th>
-          <th style="color: #777a80;" scope="col-1">Price</th>
-          <th style="color: #777a80;" scope="col-1">My Value</th>
+          <th style="color: #777a80;" scope="col-lg-4" >CryptoName</th>
+          <th style="color: #777a80;" scope="col-lg-4" >Price</th>
+          <th style="color: #777a80;" scope="col-lg-4" >My Value</th>
         </tr>
       </thead>
       <tbody *ngIf="cryptoWallet.length < 1">
-        <tr style="background-color: #202123; border-color: #3d4146;" >
-          <td (click)="EditToken(wallet)" class="col-1" style="color: #edeff2;" ><span class="Loader">--------</span></td>
-          <td (click)="EditToken(wallet)"  class="col-1"  style="color: #c1c7cd;" ><span class="Loader">--------</span><br><span [ngClass]="{'colorRed': wallet.PriceMovement1d <= 0,'colorGreen': wallet.PriceMovement1d > 0}"><svg *ngIf="wallet.PriceMovement1d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg><svg *ngIf="wallet.PriceMovement1d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg><span class="Loader">--------</span></span></td>
-          <td (click)="EditToken(wallet)" class="col-1"  style="color: #c1c7cd;" ><span class="Loader">--------</span><br><span id="myAmount"><span class="Loader">--------</span></span></td>
+        <!-- <tr style="background-color: #202123; border-color: #3d4146;" >
+          <td (click)="EditToken(wallet)" class="col-4"style="color: #edeff2;" ><span class="Loader">--------</span></td>
+          <td (click)="EditToken(wallet)"  class="col-4" style="color: #c1c7cd;" ><span class="Loader">--------</span><br><span [ngClass]="{'colorRed': wallet.PriceMovement1d <= 0,'colorGreen': wallet.PriceMovement1d > 0}"><svg *ngIf="wallet.PriceMovement1d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg><svg *ngIf="wallet.PriceMovement1d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg><span class="Loader">--------</span></span></td>
+          <td (click)="EditToken(wallet)" class="col-4"  style="color: #c1c7cd;" ><span class="Loader">--------</span><br><span id="myAmount"><span class="Loader">--------</span></span></td>
         </tr><tr style="background-color: #202123; border-color: #3d4146;" >
-          <td (click)="EditToken(wallet)" class="col-1" style="color: #edeff2;" ><span class="Loader">--------</span></td>
-          <td (click)="EditToken(wallet)"  class="col-1"  style="color: #c1c7cd;" ><span class="Loader">--------</span><br><span [ngClass]="{'colorRed': wallet.PriceMovement1d <= 0,'colorGreen': wallet.PriceMovement1d > 0}"><svg *ngIf="wallet.PriceMovement1d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg><svg *ngIf="wallet.PriceMovement1d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg><span class="Loader">--------</span></span></td>
-          <td (click)="EditToken(wallet)" class="col-1"  style="color: #c1c7cd;" ><span class="Loader">--------</span><br><span id="myAmount"><span class="Loader">--------</span></span></td>
+          <td (click)="EditToken(wallet)" class="col-4" style="color: #edeff2;" ><span class="Loader">--------</span></td>
+          <td (click)="EditToken(wallet)"   class="col-4"  style="color: #c1c7cd;" ><span class="Loader">--------</span><br><span [ngClass]="{'colorRed': wallet.PriceMovement1d <= 0,'colorGreen': wallet.PriceMovement1d > 0}"><svg *ngIf="wallet.PriceMovement1d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg><svg *ngIf="wallet.PriceMovement1d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg><span class="Loader">--------</span></span></td>
+          <td (click)="EditToken(wallet)" class="col-4"  style="color: #c1c7cd;" ><span class="Loader">--------</span><br><span id="myAmount"><span class="Loader">--------</span></span></td>
         </tr><tr style="background-color: #202123; border-color: #3d4146;" >
-          <td (click)="EditToken(wallet)" class="col-1" style="color: #edeff2;" ><span class="Loader">--------</span></td>
-          <td (click)="EditToken(wallet)"  class="col-1"  style="color: #c1c7cd;" ><span class="Loader">--------</span><br><span [ngClass]="{'colorRed': wallet.PriceMovement1d <= 0,'colorGreen': wallet.PriceMovement1d > 0}"><svg *ngIf="wallet.PriceMovement1d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg><svg *ngIf="wallet.PriceMovement1d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg><span class="Loader">--------</span></span></td>
-          <td (click)="EditToken(wallet)" class="col-1"  style="color: #c1c7cd;" ><span class="Loader">--------</span><br><span id="myAmount"><span class="Loader">--------</span></span></td>
+          <td (click)="EditToken(wallet)" class="col-4"style="color: #edeff2;" ><span class="Loader">--------</span></td>
+          <td (click)="EditToken(wallet)"  class="col-4"  style="color: #c1c7cd;" ><span class="Loader">--------</span><br><span [ngClass]="{'colorRed': wallet.PriceMovement1d <= 0,'colorGreen': wallet.PriceMovement1d > 0}"><svg *ngIf="wallet.PriceMovement1d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg><svg *ngIf="wallet.PriceMovement1d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg><span class="Loader">--------</span></span></td>
+          <td (click)="EditToken(wallet)" class="col-4"  style="color: #c1c7cd;" ><span class="Loader">--------</span><br><span id="myAmount"><span class="Loader">--------</span></span></td>
+        </tr> -->
+        <tr class="box-placeholder" style="background-color: #202123;">
+          <td scope="col-1" class="p-2"><h4 class="text"></h4></td>
+          <td scope="col-1" class="p-2 "><h4 class="text"></h4><br><h4 class="text"></h4></td>
+          <td scope="col-1" class="p-2 "><h4 class="text "></h4><br><h4 class="text"></h4></td>
+        </tr>
+        <tr class="box-placeholder" style="background-color: #202123;">
+          <td scope="col-" class="p-2 "><h4 class="text"></h4></td>
+          <td scope="col-1" class="p-2 "><h4 class="text"></h4><br><h4 class="text"></h4></td>
+          <td scope="col-1" class="p-2 "><h4 class="text "></h4><br><h4 class="text"></h4></td>
+        </tr>
+        <tr class="box-placeholder" style="background-color: #202123;">
+          <td scope="col-" class="p-2 "><h4 class="text"></h4></td>
+          <td scope="col-1" class="p-2 "><h4 class="text"></h4><br><h4 class="text"></h4></td>
+          <td scope="col-1" class="p-2 "><h4 class="text "></h4><br><h4 class="text"></h4></td>
         </tr>
       </tbody>
       <tbody *ngIf="cryptoWallet">
@@ -37,7 +52,7 @@
         <datalist id="colors">
           <option *ngFor="let name of CryptoName" >{{name.symbol.toUpperCase()}}</option>
         </datalist>
-        <input type="text" placeholder="Enter amount not in fiat " value="Amount" [(ngModel)]="Amount">
+        <input type="number" placeholder="Enter amount not in fiat " value="Amount" [(ngModel)]="Amount">
         <button (click)="receivinfo()">Add Token</button>
       </form>
     </div>

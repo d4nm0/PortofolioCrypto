@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalErrorComponent } from '../modal-error/modal-error.component';
 
 @Component({
   selector: 'app-login-page',
@@ -11,9 +13,12 @@ export class LoginPageComponent implements OnInit {
   password: any;
   NewUseremail: any;
   NewUserpassword: any;
+  NewSecondUserpassword: string;
   Register: boolean;
 
-  constructor(public authenticationService: AuthenticationService) { }
+
+
+  constructor(public authenticationService: AuthenticationService, private  modalService: NgbModal) { }
 
   AlreadyRegister() {
     this.Register = true;
@@ -27,7 +32,20 @@ export class LoginPageComponent implements OnInit {
   }
 
   sendNewUser(){
-    this.authenticationService.SignUp(this.NewUseremail, this.NewUserpassword)
+    if (this.NewSecondUserpassword === this.NewUserpassword) {
+      this.authenticationService.SignUp(this.NewUseremail, this.NewUserpassword)
+    } else {
+      const modalError = this.modalService.open(
+        ModalErrorComponent,
+        {
+          ariaLabelledBy: 'modal-body',
+          size: 'sm',
+          windowClass: 'lgModal',
+        }
+      );
+      modalError.componentInstance.errormsg = " Your Password don't match";
+    }
+
   }
 
   LoginUser(){

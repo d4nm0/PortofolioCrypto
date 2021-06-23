@@ -22,6 +22,9 @@ import { MessagingService } from './messaging.service';
 import { AsyncPipe } from '@angular/common';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import * as firebase from 'firebase';
+import { ModalValidComponent } from './modal-valid/modal-valid.component';
+import { ModalErrorComponent } from './modal-error/modal-error.component';
+import { ChartTokenComponent } from './chart-token/chart-token.component';
 
 // export const config =  {
 //   apiKey: "AIzaSyA_w5WyVEUI1oVKJ6ppMs0jpsotLTozIXM",
@@ -43,7 +46,10 @@ import * as firebase from 'firebase';
     LoginPageComponent,
     CalculSeeComponent,
     MobileLineComponent,
-    ModalSeeDetailTokenComponent
+    ModalSeeDetailTokenComponent,
+    ModalValidComponent,
+    ModalErrorComponent,
+    ChartTokenComponent
   ],
   imports: [
     BrowserModule,

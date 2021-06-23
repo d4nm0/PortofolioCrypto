@@ -1,6 +1,53 @@
 
-<td (click)="EditToken(wallet)" class="col-1" style="color: #edeff2;">{{ wallet.cryptoName }}</td>
-<td (click)="EditToken(wallet)"  class="col-1"  style="color: #c1c7cd;"><span *ngIf="wallet.Price">{{ wallet.Price }} €</span> <span *ngIf="!wallet.Price"  class="Loader">--------</span>  <br><span [ngClass]="{'colorRed': wallet.PriceMovement1d <= 0,'colorGreen': wallet.PriceMovement1d > 0}"><svg *ngIf="wallet.PriceMovement1d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg><svg *ngIf="wallet.PriceMovement1d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg><span *ngIf="wallet.PriceMovement1d">{{ wallet.PriceMovement1d }} %</span><span *ngIf="!wallet.PriceMovement1d" class="Loader">--------</span> </span></td>
-<td (click)="EditToken(wallet)" class="col-1"  style="color: #c1c7cd;"><span *ngIf="wallet.montant">{{ wallet.montant }} €</span><span *ngIf="!wallet.montant" class="Loader">--------</span>  <br><span id="myAmount">{{ wallet.amount }}</span></td>
+<td (click)="EditToken(wallet)" class="col-1" style="color: #edeff2;">
+  {{ wallet.cryptoName }}
+</td>
+<td (click)="EditToken(wallet)"  class="col-1"  style="color: #c1c7cd;">
+  <span *ngIf="wallet.Price">
+    {{ wallet.Price.substring(0,6) }} €
+  </span>
+  <span *ngIf="!wallet.Price"   style="background-color: #202123;">
+    <a class="box-placeholder">
+      <a class="">
+        <h4 class="text">
+        </h4>
+      </a>
+    </a>
+  </span>
+  <br>
+  <span [ngClass]="{'colorRed': wallet.PriceMovement1d <= 0,'colorGreen': wallet.PriceMovement1d > 0}">
+
+    <span *ngIf="wallet.PriceMovement1d">
+      <svg *ngIf="wallet.PriceMovement1d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg>
+      <svg *ngIf="wallet.PriceMovement1d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg>
+      {{ wallet.PriceMovement1d }} %
+    </span>
+    <span *ngIf="!wallet.PriceMovement1d" >
+      <a class="box-placeholder">
+        <a class="">
+          <h4 class="text">
+          </h4>
+        </a>
+      </a>
+    </span>
+  </span>
+</td>
+<td (click)="EditToken(wallet)" class="col-1"  style="color: #c1c7cd;">
+  <span *ngIf="wallet.montant">
+    {{ wallet.montant }} €
+  </span>
+  <span *ngIf="!wallet.montant" >
+    <a class="box-placeholder">
+      <a class="">
+        <h4 class="text">
+        </h4>
+      </a>
+    </a>
+  </span>
+  <br>
+  <span id="myAmount">
+    {{ wallet.amount }}
+  </span>
+</td>
 
 

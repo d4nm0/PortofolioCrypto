@@ -19,14 +19,94 @@
       </thead>
       <tbody *ngIf="cryptoWallet">
         <tr *ngFor="let wallet of cryptoWallet; let i = index" style="background-color: #202123; border-color: #3d4146;">
-          <td style="color: #edeff2;">{{ wallet.cryptoName }}</td>
+          <td style="color: #edeff2;">
+            <span *ngIf="wallet.cryptoName">{{ wallet.cryptoName }}</span>
+            <a *ngIf="!wallet.cryptoName" class="box-placeholder">
+            <a class="">
+              <h4 class="text">
+              </h4>
+            </a>
+          </a>
+        </td>
           <td style="color: #c1c7cd;">{{ wallet.amount }}</td>
-          <td style="color: #c1c7cd;">{{ wallet.Price }} €</td>
-          <td style="color: #c1c7cd;">{{ wallet.montant }} €</td>
-          <td [ngClass]="{'colorRed': wallet.PriceMovement1d <= 0,'colorGreen': wallet.PriceMovement1d > 0}"><svg *ngIf="wallet.PriceMovement1d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg><svg *ngIf="wallet.PriceMovement1d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg>{{ wallet.PriceMovement1d }} %</td>
-          <td [ngClass]="{'colorRed': wallet.PriceMovement7d <= 0,'colorGreen': wallet.PriceMovement7d > 0}"><svg *ngIf="wallet.PriceMovement7d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg><svg *ngIf="wallet.PriceMovement7d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg>{{ wallet.PriceMovement7d }} %</td>
-          <td [ngClass]="{'colorRed': wallet.PriceMovement30d <= 0,'colorGreen': wallet.PriceMovement30d > 0}"><svg *ngIf="wallet.PriceMovement30d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg><svg *ngIf="wallet.PriceMovement30d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg>{{ wallet.PriceMovement30d }} %</td>
-          <td><button style="background-color: #202224; border: none;" (click)="deleteCrypto(wallet.crypto_id)"> <svg  xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" ><path fill="red" d="M0 10h24v4h-24z" /></svg></button></td>
+          <td style="color: #c1c7cd;"><span *ngIf="wallet.Price">{{ wallet.Price }} €</span>
+            <a *ngIf="!wallet.Price" class="box-placeholder">
+              <a class="">
+                <h4 class="text">
+                </h4>
+              </a>
+            </a>
+          </td>
+          <td style="color: #c1c7cd;">
+            <span *ngIf="wallet.montant">{{ wallet.montant }} €</span>
+            <a *ngIf="!wallet.montant" class="box-placeholder">
+              <a class="">
+                <h4 class="text">
+                </h4>
+              </a>
+            </a>
+          </td>
+          <td [ngClass]="{'colorRed': wallet.PriceMovement1d <= 0,'colorGreen': wallet.PriceMovement1d > 0}">
+            <span *ngIf="wallet.PriceMovement1d">
+              <svg *ngIf="wallet.PriceMovement1d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg>
+              <svg *ngIf="wallet.PriceMovement1d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg>
+              {{ wallet.PriceMovement1d }} %
+            </span>
+            <a *ngIf="!wallet.PriceMovement1d" class="box-placeholder">
+              <a class="">
+                <h4 class="text">
+                </h4>
+              </a>
+            </a>
+          </td>
+          <td [ngClass]="{'colorRed': wallet.PriceMovement7d <= 0,'colorGreen': wallet.PriceMovement7d > 0}">
+            <span *ngIf="wallet.PriceMovement1d">
+              <svg *ngIf="wallet.PriceMovement7d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg>
+              <svg *ngIf="wallet.PriceMovement7d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg>
+              {{ wallet.PriceMovement7d }} %
+            </span>
+            <a *ngIf="!wallet.PriceMovement7d" class="box-placeholder">
+              <a class="">
+                <h4 class="text">
+                </h4>
+              </a>
+            </a>
+          </td>
+          <td [ngClass]="{'colorRed': wallet.PriceMovement30d <= 0,'colorGreen': wallet.PriceMovement30d > 0}">
+            <span *ngIf="wallet.PriceMovement30d">
+              <svg *ngIf="wallet.PriceMovement30d <= 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(255, 0, 21);"><path d="M12 4v16M18 14l-6 6-6-6"></path></svg>
+              <svg *ngIf="wallet.PriceMovement30d > 0" class="n-h12 n-mr2 n-mn-w12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-testid="arrow" style="color: rgb(0, 224, 142);"><path d="M12 20V4M6 10l6-6 6 6"></path></svg>
+              {{ wallet.PriceMovement30d }} %
+            </span>
+            <a *ngIf="!wallet.PriceMovement30d" class="box-placeholder">
+              <a class="">
+                <h4 class="text">
+                </h4>
+              </a>
+            </a>
+          </td>
+          <td><button style="background-color: #202224; border: none;" (click)="deleteCrypto(wallet.crypto_id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24">
+              <defs>
+                <style>
+
+                </style>
+              </defs>
+              <!-- Begin SVG bounds-->
+              <g id="canvas">
+                <!-- Begin trash can body-->
+                <g id="can">
+                  <rect  class="cls-1" width="24" height="24"/>
+                  <line style="fill:red"  class="cls-1" x1="18" y1="9" x2="18" y2="18.46"/>
+                  <path style="fill:red" d="M6,7V19a2,2,0,0,0,2,2h8a2,2,0,0,0,2-2V7ZM16,18.46a.54.54,0,0,1-.54.54H8.54A.54.54,0,0,1,8,18.46V9h8ZM14.25,18h-1.5V10h1.5Zm-3-8H9.75v8h1.5Z"/>
+                </g>
+                <!-- Begin trash can lid-->
+                <g id="lid">
+                  <polygon style="fill:red"  points="19 4 15.5 4 14.5 3 9.5 3 8.5 4 5 4 5 6 19 6 19 4"/>
+                </g>
+              </g>
+            </svg>
+          </button></td>
         </tr>
       </tbody>
 
@@ -53,7 +133,7 @@
     <div class="card col-lg-3" style=" background-color: #202224;">
       <div class="card-body">
         <h5 class="card-title" style="color: #832e83;">Your Account</h5>
-        <p class="card-text" style="color: #c1c7cd;">Email : {{ userEmail }}<br>Total Amount : {{montantTotalDef}} €</p>
+        <p class="card-text" style="color: #c1c7cd;">Email : {{ userEmail }}<br><!--Total Amount : {{montantTotalDef}} €--></p>
         <button (click)="logOut()" class="btn" style="background-color: #832e83; color: white;">LogOut</button><br>
         <a href="https://nomics.com" style="font-size: 10px;">Crypto Market Cap & Pricing Data Provided By Nomics</a>
 

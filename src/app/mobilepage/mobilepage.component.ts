@@ -28,11 +28,11 @@ montantTotalDef: number;
   constructor(private http : HttpClient, public db: AngularFireDatabase,private router: Router) { }
 
   ngOnInit(): void {
-    console.log('ngoninit');
+    // console.log('ngoninit');
     this.db.list('cryptoList', ref => ref.orderByChild('user').equalTo(localStorage.getItem('user')))
       .valueChanges()
       .subscribe(r => {
-        console.log(r);
+        // console.log(r);
         this.cryptoWallet = r;
         setInterval(() => {
           this.montantTotal = 0;
@@ -45,12 +45,12 @@ montantTotalDef: number;
               this.PriceMtn = parseFloat(Response[0].price);
               this.EURmontant = crypto.amount * this.PriceMtn;
               this.jsonString = JSON.stringify(crypto);
-              crypto["montant"] = this.EURmontant.toFixed(2);
+              crypto["montant"] = this.EURmontant.toFixed(1);
 
               crypto["Price"] = this.PriceMtn.toFixed(4);
               this.montantTotal += this.EURmontant;
               setTimeout(() => {
-              this.http.get('https://api.nomics.com/v1/currencies/ticker?key=eb2ee570072c49c57d6f54c3f7a5cabb&ids=' + crypto.cryptoName +'&interval=1d,7d,30d&convert=EUR')
+              this.http.get('https://api.nomics.com/v1/currencies/ticker?key=7bf8922c345ff770ff884abd97792553&ids=' + crypto.cryptoName +'&interval=1d,7d,30d&convert=EUR')
               .subscribe(Response => {
                 if(Response){
                   if (Response[0]['1d'] && Response[0]['7d'] && Response[0]['30d']) {
@@ -61,7 +61,7 @@ montantTotalDef: number;
                   }
                 }
               });
-            },1500);
+            },2000);
             }
             if (!stop){
               this.montantTotalDef = parseFloat(this.montantTotal.toFixed(2));
@@ -70,14 +70,14 @@ montantTotalDef: number;
           });
         }
         });
-      }, 1500);
+      }, 2000);
       });
 
     this.http.get<any>('https://api.coingecko.com/api/v3/coins/list?include_platform=false')
     .subscribe(data => {
       if(data){
         this.CryptoName = data;
-        console.log(this.CryptoName);
+        // console.log(this.CryptoName);
       }
     });
     this.userEmail = localStorage.getItem('email');
