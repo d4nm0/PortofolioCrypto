@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { RouterModule } from '@angular/router';
 
 import { ModalSeeDetailTokenComponent } from './modal-see-detail-token.component';
+import { Wallet } from '../models/wallet';
 
 describe('ModalSeeDetailTokenComponent', () => {
   let component: ModalSeeDetailTokenComponent;
@@ -16,8 +17,7 @@ describe('ModalSeeDetailTokenComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ 
-        ModalSeeDetailTokenComponent,
+      imports: [ 
         AngularFireDatabaseModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
@@ -25,6 +25,7 @@ describe('ModalSeeDetailTokenComponent', () => {
         AngularFireAuthModule,
         RouterModule.forRoot([])
       ],
+      declarations: [ ModalSeeDetailTokenComponent ],
       providers: [ NgbActiveModal ],
     })
     .compileComponents();
@@ -33,6 +34,7 @@ describe('ModalSeeDetailTokenComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ModalSeeDetailTokenComponent);
     component = fixture.componentInstance;
+    component.wallet = new Wallet();
     fixture.detectChanges();
   });
 

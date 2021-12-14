@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Router } from '@angular/router';
+import { Wallet } from '../models/wallet';
 
 @Component({
   selector: 'app-modal-see-detail-token',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./modal-see-detail-token.component.scss']
 })
 export class ModalSeeDetailTokenComponent implements OnInit {
-  @Input() wallet: any;
+  @Input() wallet: Wallet;
 
   constructor( public activeModal: NgbActiveModal, public db: AngularFireDatabase,private router: Router) { }
 
