@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalSeeDetailTokenComponent } from '../modal-see-detail-token/modal-see-detail-token.component';
+import { Wallet } from '../models/wallet';
 
 @Component({
   selector: '[app-mobile-line]',
@@ -8,7 +9,7 @@ import { ModalSeeDetailTokenComponent } from '../modal-see-detail-token/modal-se
   styleUrls: ['./mobile-line.component.scss']
 })
 export class MobileLineComponent implements OnInit {
-  @Input() wallet: any;
+  @Input() wallet: Wallet;
   data: boolean;
 
   constructor(private modalService: NgbModal) { }

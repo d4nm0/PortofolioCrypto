@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Wallet } from '../models/wallet';
 
 import { MobileLineComponent } from './mobile-line.component';
 
@@ -16,6 +17,7 @@ describe('MobileLineComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MobileLineComponent);
     component = fixture.componentInstance;
+    component.wallet = new Wallet();
     fixture.detectChanges();
   });
 
