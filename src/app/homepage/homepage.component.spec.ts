@@ -40,4 +40,11 @@ describe('HomepageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render table', () => {
+    const fixture = TestBed.createComponent(HomepageComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('table')).toBeTruthy();
+  });
 });
