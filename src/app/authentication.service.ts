@@ -11,6 +11,7 @@ import { ModalErrorComponent } from './modal-error/modal-error.component';
 export class AuthenticationService {
   userId: string;
   userEmail: string;
+  errorMessage: string = null;
 
   constructor(public afAuth: AngularFireAuth, private router: Router, private  modalService: NgbModal) { }
 
@@ -69,6 +70,9 @@ export class AuthenticationService {
           }
         );
         modalError.componentInstance.errormsg = error.message;
+        this.errorMessage = error.message;
+
+
         // window.alert(error.message)
       })
   }

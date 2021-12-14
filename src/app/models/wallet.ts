@@ -2,8 +2,11 @@ export class Wallet implements WalletInterface {
     cryptoName: string = ""
     Price: string = ""
     PriceMovement1d: number = 0
+    PriceMovement7d: number = 0
+    PriceMovement30d: number = 0
     montant: string = ""
     amount: string = ""
+    crypto_id: any
 
 
     constructor(

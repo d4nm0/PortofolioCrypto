@@ -16,7 +16,7 @@ describe('HomepageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ 
+      imports: [
         HttpClientModule,
         AngularFireDatabaseModule,
         AngularFireModule.initializeApp(environment.firebase),
@@ -39,6 +39,10 @@ describe('HomepageComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('selected token is null', () => {
+    expect(component.selectToken).toEqual('');
   });
 
   it('should render table', () => {

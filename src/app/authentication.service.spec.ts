@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -14,7 +14,7 @@ describe('AuthenticationService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ 
+      imports: [
         AngularFireDatabaseModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
@@ -24,9 +24,27 @@ describe('AuthenticationService', () => {
       ]
     });
     service = TestBed.inject(AuthenticationService);
+
   });
+
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('user not exist', () => {
+    service.SignIn('tedzeezst@test.com','testzerrzeezrezreztest')
+    expect(localStorage.getItem('user')).toBeNull();
+  });
+
+  it('Sign', () => {
+    service.SignIn('test@test.com','testtest')
+    // expect(service.afAuth.auth).toBeTruthy();
+    expect(localStorage.getItem('user')).toEqual('eGnnPYVxC1NzmHDUGhHNM3gBVyl1');
+    localStorage.removeItem('user')
+  });
+
+
+
+
 });

@@ -17,7 +17,7 @@ export class HomepageComponent implements OnInit {
   montantachatBTC: number;
   EURmontant: number;
   CryptoName: Array<any> = [];
-  selectToken: string;
+  selectToken: string = '';
   Amount: 0;
   montantachatCrypto: number;
   valuetoken: any;
@@ -145,6 +145,7 @@ export class HomepageComponent implements OnInit {
     let stop = false;
     // console.log(this.Amount);
     // console.log(this.selectToken.toUpperCase());
+    if (!this.selectToken) this.selectToken = ''
     if (
       this.Amount !== 0 &&
       this.selectToken.toUpperCase() !== ''
