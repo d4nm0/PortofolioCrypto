@@ -5,6 +5,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { environment } from 'src/environments/environment';
+import { RouterModule } from '@angular/router';
 
 import { LoginPageComponent } from './login-page.component';
 
@@ -21,6 +22,7 @@ describe('LoginPageComponent', () => {
         AngularFirestoreModule,
         AngularFireMessagingModule,
         AngularFireAuthModule,
+        RouterModule.forRoot([])
       ],
       providers: [AngularFireAuth],
     })

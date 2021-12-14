@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { ChartTokenComponent } from './chart-token.component';
 
@@ -8,7 +9,9 @@ describe('ChartTokenComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChartTokenComponent ]
+      imports: [ HttpClientModule ],
+      declarations: [ ChartTokenComponent ],
+      providers: [ HttpClient ],
     })
     .compileComponents();
   });
