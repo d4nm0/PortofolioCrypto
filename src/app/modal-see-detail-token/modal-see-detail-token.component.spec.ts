@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -14,6 +14,7 @@ import { Wallet } from '../models/wallet';
 describe('ModalSeeDetailTokenComponent', () => {
   let component: ModalSeeDetailTokenComponent;
   let fixture: ComponentFixture<ModalSeeDetailTokenComponent>;
+  let activeModal: NgbActiveModal;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -26,9 +27,8 @@ describe('ModalSeeDetailTokenComponent', () => {
         RouterModule.forRoot([])
       ],
       declarations: [ ModalSeeDetailTokenComponent ],
-      providers: [ NgbActiveModal ],
-    })
-    .compileComponents();
+      providers: [ NgbModal, NgbActiveModal ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -46,16 +46,15 @@ describe('ModalSeeDetailTokenComponent', () => {
     expect(component.wallet.PriceMovement1d).toEqual(0)
   });
 
-  it('test function close modal', () => {
-    spyOn(component, 'closeModal');
-    component.closeModal()
-    expect(component.closeModal).toHaveBeenCalled();
-  });
+  it('should close modal', () => {
+    let modalService : NgbModal = TestBed.get(NgbModal);
+    const modalRef : NgbModalRef = modalService.open(ModalSeeDetailTokenComponent);
+    component = modalRef.componentInstance;
+    activeModal = component.activeModal;
 
-  it('test  close modal', () => {
-    const fixture = TestBed.createComponent(ModalSeeDetailTokenComponent);
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('modal-content')).toBeNull();
+    spyOn(activeModal, 'dismiss');
+    component.closeModal();
+    expect(activeModal.dismiss).toHaveBeenCalled();
   });
 
 });

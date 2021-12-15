@@ -56,7 +56,14 @@ describe('LoginPageComponent', () => {
     expect(component.Register).toBeFalse();
   });
 
-  it('should call login service ', async () => {
+  it('should call signup service', async () => {
+    spyOn(authService, 'SignUp');
+
+    component.sendNewUser();
+    expect(authService.SignUp).toHaveBeenCalled();
+  });
+
+  it('should call login service', async () => {
     spyOn(authService, 'SignIn');
 
     component.LoginUser();
