@@ -17,7 +17,7 @@ describe('ModalSeeDetailTokenComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ 
+      imports: [
         AngularFireDatabaseModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
@@ -40,5 +40,9 @@ describe('ModalSeeDetailTokenComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('input var is ok', () => {
+    console.log(component.wallet)
+      expect(component.wallet.PriceMovement1d).toEqual(0)
   });
 });
