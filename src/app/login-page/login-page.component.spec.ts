@@ -8,10 +8,12 @@ import { environment } from 'src/environments/environment';
 import { RouterModule } from '@angular/router';
 
 import { LoginPageComponent } from './login-page.component';
+import { AuthenticationService } from '../authentication.service';
 
 describe('LoginPageComponent', () => {
   let component: LoginPageComponent;
   let fixture: ComponentFixture<LoginPageComponent>;
+  let authService: AuthenticationService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -32,6 +34,7 @@ describe('LoginPageComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginPageComponent);
     component = fixture.componentInstance;
+    authService = TestBed.get(AuthenticationService);
     fixture.detectChanges();
   });
 
@@ -53,7 +56,10 @@ describe('LoginPageComponent', () => {
     expect(component.Register).toBeFalse();
   });
 
-  /*it('should connect user', async () => {
-    component.authenticationService
-  })*/
+  it('should call login service ', async () => {
+    spyOn(authService, 'SignIn');
+
+    component.LoginUser();
+    expect(authService.SignIn).toHaveBeenCalled();
+  });
 });
