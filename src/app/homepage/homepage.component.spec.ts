@@ -54,5 +54,32 @@ describe('HomepageComponent', () => {
 
   it ('cryptoWallet variable is define', () => {
       expect(component.cryptoWallet).toEqual([])
-    })
+  })
+
+  it('test function loginUser', () => {
+    spyOn(component, 'LoginUser');
+    expect(component.email).toEqual(undefined)
+    expect(component.password).toEqual(undefined)
+  });
+
+  it('test function sendNewUser', () => {
+    spyOn(component, 'sendNewUser');
+    expect(component.NewUseremail).toEqual(undefined)
+    expect(component.NewUserpassword).toEqual(undefined)
+  });
+
+  it('test function receivinfo', () => {
+    spyOn(component, 'receivinfo');
+    component.montantachatCrypto = 3
+    component.PriceMtn = 2
+    component.EURmontant = 6
+    expect(component.montantachatCrypto).toEqual(3)
+    expect(component.PriceMtn).toEqual(2)
+    expect(component.EURmontant).toEqual(component.montantachatCrypto * component.PriceMtn)
+  });
+
+  it('test function SendCrypto', () => {
+    spyOn(component, 'SendCrypto');
+    expect(component.valuetoken).toEqual(undefined)
+  });
 });

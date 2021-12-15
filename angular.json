@@ -47,7 +47,7 @@
               "@firebase/remote-config",
               "chart.js",
               "@firebase/auth"
-          ],
+            ],
             "scripts": []
           },
           "configurations": {
@@ -115,9 +115,10 @@
             "styles": [
               "src/styles.scss"
             ],
+            "codeCoverage": true, 
             "scripts": []
           }
-        },
+        },  
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -144,6 +145,6 @@
           }
         }
       }
-    }},
-  "defaultProject": "PortofolioCrypto"
+    }
+  }
 }

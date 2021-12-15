@@ -44,4 +44,18 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app.title).toEqual('PortofolioCrypto');
   });
+
+  it(`permitToNotify not allow`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.permitToNotify);
+    // console.log('bbbbbb'+app.displayToken)
+    expect(app.displayToken).toEqual('')
+  });
+
+  it(`test if var to verify define`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(localStorage.getItem('email')).toEqual(null)
+  });
 });

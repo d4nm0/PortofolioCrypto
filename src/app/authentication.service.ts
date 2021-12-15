@@ -77,4 +77,20 @@ export class AuthenticationService {
       })
   }
 
+  logOut() {
+    this.afAuth.auth.signOut().then(() => {
+      localStorage.clear();
+      this.router.navigate(['']);
+    }).catch((error) => {
+      const modalError = this.modalService.open(
+        ModalErrorComponent,
+        {
+          ariaLabelledBy: 'modal-body',
+          size: 'sm',
+          windowClass: 'lgModal',
+        }
+      );
+      modalError.componentInstance.errormsg = error.message;
+    })
+  }
 }

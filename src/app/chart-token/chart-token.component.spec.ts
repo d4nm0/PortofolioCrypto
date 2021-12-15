@@ -25,4 +25,11 @@ describe('ChartTokenComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`verify var is init`, () => {
+    expect(component.Price).toEqual(undefined)
+    expect(component.dataTime).toEqual(undefined)
+    expect(component.dataPrice).toEqual(undefined)
+
+  });
 });

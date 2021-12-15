@@ -13,12 +13,37 @@ module.exports = function (config) {
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false,
+      jasmine:{
+        random:false
+      } // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './coverage/PortofolioCrypto'),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
+    },
+    coverageReporter: {
+      dir: require('path').join(__dirname, './coverage/<project-name>'),
+      subdir: '.',
+      reporters: [
+        { type: 'html' },
+        { type: 'text-summary' }
+      ],
+      check: {
+        global: {
+          statements: 60,
+          branches: 60,
+          functions: 60,
+          lines: 60
+        },
+        watermarks: {
+          statements: [ 20, 60 ],
+          functions: [ 20, 60 ],
+          branches: [ 20, 60 ],
+          lines: [ 20, 60 ]
+        }
+      }
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,

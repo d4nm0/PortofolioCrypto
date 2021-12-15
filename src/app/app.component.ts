@@ -15,13 +15,13 @@ import { SwPush, SwUpdate } from '@angular/service-worker';
 export class AppComponent implements OnInit  {
   title = 'PortofolioCrypto';
   mobile= false;
-  displayToken: string;
+  displayToken: string = '';
 
 
 
   constructor(private router: Router, private messagingService: MessagingService, updates: SwUpdate, push: SwPush) {
     updates.available.subscribe(_ => updates.activateUpdate().then(() => {
-      console.log('reload for update');
+      // console.log('reload for update');
       document.location.reload();
     }));
     push.messages.subscribe(msg => console.log('push message', msg));
@@ -52,15 +52,15 @@ export class AppComponent implements OnInit  {
   //     appId: "1:732119440508:web:ac2960cfde5cefb5b33df9",
   //     measurementId: "G-KX5XY1JGC1"
   // };
-  console.log(firebase);
+  // console.log(firebase);
   // firebase.initializeApp(firebaseConfig);
-    console.log(firebase.messaging());
+    // console.log(firebase.messaging());
     const messaging = firebase.messaging();
     if (messaging) {
       messaging.requestPermission()
       .then(() => messaging.getToken().then(token => this.displayToken = token))
       .catch(err => {
-        console.log('Unable to get permission to notify.', err);
+        // console.log('Unable to get permission to notify.', err);
       });
     }
 
