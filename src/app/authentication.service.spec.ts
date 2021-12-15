@@ -1,16 +1,29 @@
-import { TestBed, fakeAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { environment } from 'src/environments/environment';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AuthenticationService } from './authentication.service';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { CalculSeeComponent } from './calcul-see/calcul-see.component';
 
 describe('AuthenticationService', () => {
   let service: AuthenticationService;
+  
+  const routes: Routes = [
+    {
+      component: LoginPageComponent,
+      path: '',
+    },
+    {
+      component: CalculSeeComponent,
+      path: 'connected',
+    }
+  ];
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -20,10 +33,13 @@ describe('AuthenticationService', () => {
         AngularFirestoreModule,
         AngularFireMessagingModule,
         AngularFireAuthModule,
-        RouterModule.forRoot([])
+        RouterModule.forRoot(routes)
       ]
     });
     service = TestBed.inject(AuthenticationService);
+  });
+
+  afterEach(() => {
     service.logOut();
   });
 
@@ -32,21 +48,27 @@ describe('AuthenticationService', () => {
     expect(service).toBeTruthy();
   });
 
-  /*it('should be not connected', (done) => {
-    service.SignIn('testvdsvsdvsd@test.com','testsdvsdvsdvtest').catch(
+  it('should be connected', async (done) => {
+    service.SignIn('test@test.com','testtest');
+
+    service.afAuth.authState.subscribe(
       user => {
-        console.log("test")
+        if (user) {
+          expect(user).toBeTruthy();
+          done();
+        }
+      }
+    );
+  });
+
+  it('should be not connected', async (done) => {
+    service.SignIn('testvdsvsdvsd@test.com','testsdvsdvsdvtest');
+    
+    service.afAuth.authState.subscribe(
+      user => {
         expect(user).toBeFalsy();
         done();
       }
     );
   });
-
-  it('should be connected', fakeAsync(() => {
-    service.SignIn('test@test.com','testtest');
-    tick(1);
-    console.log("conn")
-    console.log(localStorage.getItem('user'))
-    expect(localStorage.getItem('user')).toBeTruthy();
-  }));*/
 });

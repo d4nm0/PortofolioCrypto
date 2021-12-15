@@ -41,8 +41,8 @@ describe('ModalSeeDetailTokenComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
   it('input var is ok', () => {
-    console.log(component.wallet)
-      expect(component.wallet.PriceMovement1d).toEqual(0)
+    expect(component.wallet.PriceMovement1d).toEqual(0)
   });
 });

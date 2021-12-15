@@ -41,5 +41,19 @@ describe('LoginPageComponent', () => {
 
   it('register variable is ok', () => {
     expect(component.Register).toEqual(true)
-  })
+  });
+
+  it('should get register state to true', () => {
+    component.AlreadyRegister();
+    expect(component.Register).toBeTrue();
+  });
+
+  it('should get register state to false', () => {
+    component.NotRegister();
+    expect(component.Register).toBeFalse();
+  });
+
+  /*it('should connect user', async () => {
+    component.authenticationService
+  })*/
 });

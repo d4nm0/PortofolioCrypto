@@ -46,12 +46,10 @@ export class AuthenticationService {
   SignIn(email, password) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-         this.router.navigate(['connected']);
-        console.log('connecter')
+        this.router.navigate(['connected']);
+
         this.afAuth.auth.onAuthStateChanged((user) => {
           if (user) {
-            // User logged in already or has just logged in.
-            console.log(user);
             this.userId = user.uid;
             this.userEmail = user.email;
             localStorage.setItem("user",this.userId);
