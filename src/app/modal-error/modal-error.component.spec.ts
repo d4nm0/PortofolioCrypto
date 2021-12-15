@@ -22,4 +22,9 @@ describe('ModalErrorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('input error is ok', () => {
+    console.log(component.errormsg)
+    expect(component.errormsg).toEqual(undefined)
+  })
 });

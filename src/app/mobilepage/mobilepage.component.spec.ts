@@ -16,8 +16,8 @@ describe('MobilepageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ 
-        HttpClientModule, 
+      imports: [
+        HttpClientModule,
         AngularFireDatabaseModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
@@ -26,7 +26,7 @@ describe('MobilepageComponent', () => {
         RouterModule.forRoot([])
       ],
       declarations: [ MobilepageComponent ],
-      providers: [ 
+      providers: [
         HttpClient
       ],
     })
@@ -42,4 +42,15 @@ describe('MobilepageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render table', () => {
+    const fixture = TestBed.createComponent(MobilepageComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('table')).toBeTruthy();
+  });
+
+  it ('cryptoWallet variable is define', () => {
+      expect(component.cryptoWallet).toEqual([])
+    })
 });
