@@ -24,7 +24,6 @@ describe('ModalErrorComponent', () => {
   });
 
   it('input error is ok', () => {
-    console.log(component.errormsg)
     expect(component.errormsg).toEqual(undefined)
   })
 });
