@@ -58,4 +58,5 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(localStorage.getItem('email')).toEqual(null)
   });
+
 });

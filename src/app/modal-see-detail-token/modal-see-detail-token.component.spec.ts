@@ -57,4 +57,5 @@ describe('ModalSeeDetailTokenComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('modal-content')).toBeNull();
   });
+
 });

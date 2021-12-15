@@ -55,11 +55,17 @@ describe('MobilepageComponent', () => {
 
   it ('cryptoWallet variable is define', () => {
       expect(component.cryptoWallet).toEqual([])
-    })
+  });
 
-    it('logout service call ok', () => {
-      spyOn(authService, 'logOut');
-      component.logOut()
-      expect(authService.logOut).toHaveBeenCalled();
-    });
+  it('logout service call ok', () => {
+    spyOn(authService, 'logOut');
+    component.logOut()
+    expect(authService.logOut).toHaveBeenCalled();
+  });
+
+  it('verify declare var montant total', () => {
+    console.log(component.montantTotal)
+    // if (component.montantTotal) component.montantTotal === 0
+    expect(component.montantTotal).toEqual(0);
+  });
 });
