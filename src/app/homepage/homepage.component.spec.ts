@@ -9,10 +9,12 @@ import { environment } from 'src/environments/environment';
 import { RouterModule } from '@angular/router';
 
 import { HomepageComponent } from './homepage.component';
+import { AuthenticationService } from '../authentication.service';
 
 describe('HomepageComponent', () => {
   let component: HomepageComponent;
   let fixture: ComponentFixture<HomepageComponent>;
+  let authService: AuthenticationService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -34,6 +36,7 @@ describe('HomepageComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HomepageComponent);
     component = fixture.componentInstance;
+    authService = TestBed.get(AuthenticationService);
     fixture.detectChanges();
   });
 
@@ -60,6 +63,27 @@ describe('HomepageComponent', () => {
     spyOn(component, 'LoginUser');
     expect(component.email).toEqual(undefined)
     expect(component.password).toEqual(undefined)
+
+
+  });
+
+  it('sign in service call ok', () => {
+    spyOn(authService, 'SignIn');
+    component.LoginUser()
+    expect(authService.SignIn).toHaveBeenCalled();
+  });
+
+
+  it('ssign up service call ok', () => {
+    spyOn(authService, 'SignUp');
+    component.sendNewUser()
+    expect(authService.SignUp).toHaveBeenCalled();
+  });
+
+  it('logout service call ok', () => {
+    spyOn(authService, 'logOut');
+    component.logOut()
+    expect(authService.logOut).toHaveBeenCalled();
   });
 
   it('test function sendNewUser', () => {
@@ -67,6 +91,7 @@ describe('HomepageComponent', () => {
     expect(component.NewUseremail).toEqual(undefined)
     expect(component.NewUserpassword).toEqual(undefined)
   });
+
 
   it('test function receivinfo', () => {
     spyOn(component, 'receivinfo');
@@ -81,5 +106,12 @@ describe('HomepageComponent', () => {
   it('test function SendCrypto', () => {
     spyOn(component, 'SendCrypto');
     expect(component.valuetoken).toEqual(undefined)
+  });
+
+  it('test function deleteCrypto', () => {
+    spyOn(component, 'deleteCrypto');
+    component.deleteCrypto(0)
+    expect(component.deleteCrypto).toHaveBeenCalled();
+
   });
 });

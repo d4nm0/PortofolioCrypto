@@ -9,10 +9,12 @@ import { environment } from 'src/environments/environment';
 import { RouterModule } from '@angular/router';
 
 import { MobilepageComponent } from './mobilepage.component';
+import { AuthenticationService } from '../authentication.service';
 
 describe('MobilepageComponent', () => {
   let component: MobilepageComponent;
   let fixture: ComponentFixture<MobilepageComponent>;
+  let authService: AuthenticationService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -36,6 +38,7 @@ describe('MobilepageComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MobilepageComponent);
     component = fixture.componentInstance;
+    authService = TestBed.get(AuthenticationService);
     fixture.detectChanges();
   });
 
@@ -53,4 +56,10 @@ describe('MobilepageComponent', () => {
   it ('cryptoWallet variable is define', () => {
       expect(component.cryptoWallet).toEqual([])
     })
+
+    it('logout service call ok', () => {
+      spyOn(authService, 'logOut');
+      component.logOut()
+      expect(authService.logOut).toHaveBeenCalled();
+    });
 });

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-mobilepage',
@@ -25,7 +26,7 @@ montantTotal = 0;
 montantTotalDef: number;
   userEmail: string;
 
-  constructor(private http : HttpClient, public db: AngularFireDatabase,private router: Router) { }
+  constructor(private http : HttpClient, public db: AngularFireDatabase,private router: Router, public authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     // console.log('ngoninit');
@@ -138,6 +139,7 @@ montantTotalDef: number;
   }
 
   logOut(){
+    this.authenticationService.logOut();
     localStorage.clear();
     this.router.navigate(['']);
   }

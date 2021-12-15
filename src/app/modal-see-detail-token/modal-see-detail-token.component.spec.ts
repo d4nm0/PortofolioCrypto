@@ -45,4 +45,16 @@ describe('ModalSeeDetailTokenComponent', () => {
   it('input var is ok', () => {
     expect(component.wallet.PriceMovement1d).toEqual(0)
   });
+
+  it('test function close modal', () => {
+    spyOn(component, 'closeModal');
+    component.closeModal()
+    expect(component.closeModal).toHaveBeenCalled();
+  });
+
+  it('test  close modal', () => {
+    const fixture = TestBed.createComponent(ModalSeeDetailTokenComponent);
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('modal-content')).toBeNull();
+  });
 });
