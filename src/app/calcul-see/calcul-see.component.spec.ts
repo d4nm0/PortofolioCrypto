@@ -22,4 +22,8 @@ describe('CalculSeeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('calcul size of screen', () => {
+    expect(component.mobile).toEqual(false)
+  })
 });

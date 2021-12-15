@@ -51,4 +51,8 @@ describe('HomepageComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('table')).toBeTruthy();
   });
+
+  it ('cryptoWallet variable is define', () => {
+      expect(component.cryptoWallet).toEqual([])
+    })
 });

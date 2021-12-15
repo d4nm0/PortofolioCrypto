@@ -25,6 +25,8 @@ describe('AuthenticationService', () => {
     });
     service = TestBed.inject(AuthenticationService);
 
+    localStorage.removeItem('user')
+
   });
 
 
@@ -33,16 +35,10 @@ describe('AuthenticationService', () => {
   });
 
   it('user not exist', () => {
-    service.SignIn('tedzeezst@test.com','testzerrzeezrezreztest')
+    service.SignIn('tedzeezst@test.com','testzerrzeezrezreztest');
     expect(localStorage.getItem('user')).toBeNull();
   });
 
-  it('Sign', () => {
-    service.SignIn('test@test.com','testtest')
-    // expect(service.afAuth.auth).toBeTruthy();
-    expect(localStorage.getItem('user')).toEqual('eGnnPYVxC1NzmHDUGhHNM3gBVyl1');
-    localStorage.removeItem('user')
-  });
 
 
 

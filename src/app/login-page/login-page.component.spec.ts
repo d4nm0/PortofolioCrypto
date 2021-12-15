@@ -38,4 +38,9 @@ describe('LoginPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('register variable is ok', () => {
+    console.log(component.Register)
+    expect(component.Register).toEqual(true)
+  })
 });

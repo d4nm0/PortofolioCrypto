@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calcul-see.component.scss']
 })
 export class CalculSeeComponent implements OnInit {
-  mobile: boolean;
+  mobile: boolean = false;
 
   constructor() { }
 
