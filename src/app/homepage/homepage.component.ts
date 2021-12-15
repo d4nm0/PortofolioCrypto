@@ -202,8 +202,7 @@ export class HomepageComponent implements OnInit {
   }
 
   logOut(){
-    localStorage.clear();
-    this.router.navigate(['']);
+    this.authenticationService.logOut();
   }
 
 }

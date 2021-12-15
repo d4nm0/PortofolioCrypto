@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed, fakeAsync } from '@angular/core/testing';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -24,9 +24,7 @@ describe('AuthenticationService', () => {
       ]
     });
     service = TestBed.inject(AuthenticationService);
-
-    localStorage.removeItem('user')
-
+    service.logOut();
   });
 
 
@@ -34,13 +32,21 @@ describe('AuthenticationService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('user not exist', () => {
-    service.SignIn('tedzeezst@test.com','testzerrzeezrezreztest');
-    expect(localStorage.getItem('user')).toBeNull();
+  /*it('should be not connected', (done) => {
+    service.SignIn('testvdsvsdvsd@test.com','testsdvsdvsdvtest').catch(
+      user => {
+        console.log("test")
+        expect(user).toBeFalsy();
+        done();
+      }
+    );
   });
 
-
-
-
-
+  it('should be connected', fakeAsync(() => {
+    service.SignIn('test@test.com','testtest');
+    tick(1);
+    console.log("conn")
+    console.log(localStorage.getItem('user'))
+    expect(localStorage.getItem('user')).toBeTruthy();
+  }));*/
 });
