@@ -30,7 +30,7 @@ Pour tester le code de l'application nous avons utilisé Karma Angular qui est u
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-![alt text](https://github.com/d4nm0/PortofolioCrypto/blob/lexbal/test_unit/img/karmatests.PNG)
+![alt text](https://github.com/d4nm0/PortofolioCrypto/blob/lexbal/test_unit/img/karmatest.PNG)
 
 ## Coverage angular
 
