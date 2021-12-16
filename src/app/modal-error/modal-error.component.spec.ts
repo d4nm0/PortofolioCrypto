@@ -23,7 +23,7 @@ describe('ModalErrorComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("Devrait vérifier que la variable "errormsg" est vide lors de l'initialisation", () => {
+  it("Devrait vérifier que la variable \"errormsg\" est vide lors de l'initialisation", () => {
     expect(component.errormsg).toEqual(undefined)
   })
 });
