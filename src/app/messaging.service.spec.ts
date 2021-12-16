@@ -28,4 +28,22 @@ describe('MessagingService', () => {
   it('Devrait créer le component', () => {
     expect(service).toBeTruthy();
   });
+
+  it('Devrait vérifier la fonction "receiveMessage"', () => {
+    spyOn(service, 'receiveMessage').and.callThrough();
+    service.receiveMessage();
+    expect(service.receiveMessage).toHaveBeenCalled();
+  });
+
+  it('Devrait vérifier la fonction "requestPermission"', () => {
+    spyOn(service, 'requestPermission').and.callThrough();
+    service.requestPermission(1);
+    expect(service.requestPermission).toHaveBeenCalled();
+  });
+
+  it('Devrait vérifier la fonction "updateToken"', () => {
+    spyOn(service, 'updateToken').and.callThrough();
+    service.updateToken(1,1);
+    expect(service.updateToken).toHaveBeenCalled();
+  });
 });
