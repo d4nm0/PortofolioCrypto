@@ -40,85 +40,83 @@ describe('HomepageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Devrait créer le component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('selected token is null', () => {
+  it("Devrait vérifier que le token est null à l'initialisation", () => {
     expect(component.selectToken).toEqual('');
   });
 
-  it('should render table', () => {
+  it('Devrait afficher une balise "table" dans le component', () => {
     const fixture = TestBed.createComponent(HomepageComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('table')).toBeTruthy();
   });
 
-  it ('cryptoWallet variable is define', () => {
+  it ('Devrait vérifier que la variable "cryptoWallet" est initialisée à un array vide', () => {
       expect(component.cryptoWallet).toEqual([])
   })
 
-  it('test function loginUser', () => {
+  it('Devrait vérifier la fonction "LoginUser"', () => {
     spyOn(component, 'LoginUser');
     expect(component.email).toEqual(undefined)
     expect(component.password).toEqual(undefined)
-
-
   });
 
-  it('sign in service call ok', () => {
+  it("Devrait vérifier l'appel de la fonction 'SignIn' de 'authService' dans la fonction 'LoginUser' du component", () => {
     spyOn(authService, 'SignIn');
     component.LoginUser()
     expect(authService.SignIn).toHaveBeenCalled();
   });
 
 
-  it('ssign up service call ok', () => {
+  it("Devrait vérifier l'appel de la fonction 'SignUp' de 'authService' dans la fonction 'sendNewUser' du component", () => {
     spyOn(authService, 'SignUp');
     component.sendNewUser()
     expect(authService.SignUp).toHaveBeenCalled();
   });
 
-  it('logout service call ok', () => {
+  it("Devrait vérifier l'appel de la fonction 'logOut' de 'authService' dans la fonction 'logOut' du component", () => {
     spyOn(authService, 'logOut');
     component.logOut()
     expect(authService.logOut).toHaveBeenCalled();
   });
 
-  it('test function sendNewUser', () => {
+  it('Devrait vérifier la fonction "sendNewUser"', () => {
     spyOn(component, 'sendNewUser');
     expect(component.NewUseremail).toEqual(undefined)
     expect(component.NewUserpassword).toEqual(undefined)
   });
 
 
-  it('test function receivinfo', () => {
-    // spyOn(component, 'receivinfo');
-    // component.montantachatCrypto = 3
-    // component.PriceMtn = 2
-    // component.EURmontant = 6
-    // expect(component.montantachatCrypto).toEqual(3)
-    // expect(component.PriceMtn).toEqual(2)
-    // expect(component.EURmontant).toEqual(component.montantachatCrypto * component.PriceMtn)
+  it('Devrait vérifier la fonction "receivinfo"', () => {
     spyOn(component, 'receivinfo').and.callThrough();
     component.receivinfo();
     expect(component.receivinfo).toHaveBeenCalled();
   });
 
-  it('test function SendCrypto', () => {
+  it("Devrait vérifier que la fonction 'receivinfo' return le bon montant", () => {
+    component.montantachatCrypto = 3
+    component.PriceMtn = 2
+    component.EURmontant = 6
+    spyOn(component, 'receivinfo');
+    expect(component.montantachatCrypto).toEqual(3)
+    expect(component.PriceMtn).toEqual(2)
+    expect(component.EURmontant).toEqual(component.montantachatCrypto * component.PriceMtn)
+  });
+
+  it('Devrait vérifier la fonction "SendCrypto"', () => {
     spyOn(component, 'SendCrypto').and.callThrough();
     component.SendCrypto();
     expect(component.SendCrypto).toHaveBeenCalled();
   });
 
-
-  it('verif function delete crypto', () => {
+  it('Devrait vérifier la fonction "deleteCrypto"', () => {
     const changes = 1
     spyOn(component, 'deleteCrypto').and.callThrough();
     component.deleteCrypto(changes);
     expect(component.deleteCrypto).toHaveBeenCalled();
   });
-
-
 });

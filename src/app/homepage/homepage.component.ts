@@ -69,42 +69,39 @@ export class HomepageComponent implements OnInit {
           // this.montantTotal = 0;
         r.forEach((crypto: any) => {
           if (crypto) {
-          this.http.get('https://api.nomics.com/v1/currencies/ticker?key=eb2ee570072c49c57d6f54c3f7a5cabb&ids=' + crypto.cryptoName +'&interval=1d,7d,30d&convert=EUR')
-          .subscribe(Response => {
-            let stop = false
-            if(Response){
+            this.http.get('https://api.nomics.com/v1/currencies/ticker?key=eb2ee570072c49c57d6f54c3f7a5cabb&ids=' + crypto.cryptoName +'&interval=1d,7d,30d&convert=EUR')
+            .subscribe(Response => {
+              let stop = false
 
+              if (Response) {
+                this.PriceMtn = parseFloat(Response[0].price);
+                this.EURmontant = crypto.amount * this.PriceMtn;
+                this.jsonString = JSON.stringify(crypto);
+                crypto["montant"] = this.EURmontant.toFixed(2);
+                crypto["Price"] = this.PriceMtn.toFixed(4);
+                // this.montantTotal += this.EURmontant;
 
-              this.PriceMtn = parseFloat(Response[0].price);
-              this.EURmontant = crypto.amount * this.PriceMtn;
-              this.jsonString = JSON.stringify(crypto);
-              crypto["montant"] = this.EURmontant.toFixed(2);
-              crypto["Price"] = this.PriceMtn.toFixed(4);
-              // this.montantTotal += this.EURmontant;
+                setTimeout(() => {
+                  this.http.get('https://api.nomics.com/v1/currencies/ticker?key=7bf8922c345ff770ff884abd97792553&ids=' + crypto.cryptoName +'&interval=1d,7d,30d&convert=EUR')
+                  .subscribe(Response => {
+                    if (Response) {
+                      if (Response[0]['1d'] && Response[0]['7d'] && Response[0]['30d']) {
+                        crypto["PriceMovement1d"] = (Response[0]['1d'].price_change_pct * 100).toFixed(2);
+                        crypto["PriceMovement7d"] = (Response[0]['7d'].price_change_pct * 100).toFixed(2);
+                        crypto["PriceMovement30d"] = (Response[0]['30d'].price_change_pct * 100).toFixed(2);
+                        crypto = JSON.stringify(crypto);
+                      }
+                    }
+                  });
+                },1500);
+              }
 
-              setTimeout(() => {
-              this.http.get('https://api.nomics.com/v1/currencies/ticker?key=7bf8922c345ff770ff884abd97792553&ids=' + crypto.cryptoName +'&interval=1d,7d,30d&convert=EUR')
-              .subscribe(Response => {
-                if(Response){
-                  if (Response[0]['1d'] && Response[0]['7d'] && Response[0]['30d']) {
-                    crypto["PriceMovement1d"] = (Response[0]['1d'].price_change_pct * 100).toFixed(2);
-                    crypto["PriceMovement7d"] = (Response[0]['7d'].price_change_pct * 100).toFixed(2);
-                    crypto["PriceMovement30d"] = (Response[0]['30d'].price_change_pct * 100).toFixed(2);
-                    crypto = JSON.stringify(crypto);
-                  }
-                }
-              });
-            },1500);
-            }
-            if (!stop){
-              // this.montantTotalDef = parseFloat(this.montantTotal.toFixed(2));
-              stop = true;
-            }
-
-          });
-
-        }
-
+              if (!stop){
+                // this.montantTotalDef = parseFloat(this.montantTotal.toFixed(2));
+                stop = true;
+              }
+            });
+          }
         });
 
 

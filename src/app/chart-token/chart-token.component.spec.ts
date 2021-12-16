@@ -22,11 +22,11 @@ describe('ChartTokenComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Devrait créer le component', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`verify var is init`, () => {
+  it(`Devrait verifier que les variables du component sont initialisées`, () => {
     expect(component.Price).toEqual(undefined)
     expect(component.dataTime).toEqual(undefined)
     expect(component.dataPrice).toEqual(undefined)

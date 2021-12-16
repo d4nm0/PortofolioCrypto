@@ -42,30 +42,28 @@ describe('MobilepageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Devrait créer le component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render table', () => {
+  it('Devrait afficher une balise "table" dans le component', () => {
     const fixture = TestBed.createComponent(MobilepageComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('table')).toBeTruthy();
   });
 
-  it ('cryptoWallet variable is define', () => {
-      expect(component.cryptoWallet).toEqual([])
+  it ('Devrait vérifier que la variable "cryptoWallet" est initialisée à un array vide', () => {
+    expect(component.cryptoWallet).toEqual([])
   });
 
-  it('logout service call ok', () => {
+  it("Devrait vérifier l'appel de la fonction 'logOut' de 'authService' dans la fonction 'logOut' du component", () => {
     spyOn(authService, 'logOut');
     component.logOut()
     expect(authService.logOut).toHaveBeenCalled();
   });
 
-  it('verify declare var montant total', () => {
-    console.log(component.montantTotal)
-    // if (component.montantTotal) component.montantTotal === 0
+  it('Devrait vérifier que la variable "montantTotal" est initialisée à 0', () => {
     expect(component.montantTotal).toEqual(0);
   });
 

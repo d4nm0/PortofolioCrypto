@@ -38,15 +38,15 @@ describe('ModalSeeDetailTokenComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Devrait créer le component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('input var is ok', () => {
+  it('Devrait vérifier que la variable "PriceMovement1d" est initialisé à 0', () => {
     expect(component.wallet.PriceMovement1d).toEqual(0)
   });
 
-  it('should close modal', () => {
+  it("Devrait vérifier que la modal ouvert se ferme via l'appel de la fonction 'dismiss' dans 'closeModal'", () => {
     let modalService : NgbModal = TestBed.get(NgbModal);
     const modalRef : NgbModalRef = modalService.open(ModalSeeDetailTokenComponent);
     component = modalRef.componentInstance;
@@ -57,14 +57,10 @@ describe('ModalSeeDetailTokenComponent', () => {
     expect(activeModal.dismiss).toHaveBeenCalled();
   });
 
-  it('verif function delete crypto', () => {
+  it('Devrait vérifier la fonction "deleteCrypto"', () => {
     const changes = 1
     spyOn(component, 'deleteCrypto').and.callThrough();
     component.deleteCrypto(changes);
     expect(component.deleteCrypto).toHaveBeenCalled();
   });
-
-
-
-
 });
