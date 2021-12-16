@@ -94,24 +94,31 @@ describe('HomepageComponent', () => {
 
 
   it('test function receivinfo', () => {
-    spyOn(component, 'receivinfo');
-    component.montantachatCrypto = 3
-    component.PriceMtn = 2
-    component.EURmontant = 6
-    expect(component.montantachatCrypto).toEqual(3)
-    expect(component.PriceMtn).toEqual(2)
-    expect(component.EURmontant).toEqual(component.montantachatCrypto * component.PriceMtn)
+    // spyOn(component, 'receivinfo');
+    // component.montantachatCrypto = 3
+    // component.PriceMtn = 2
+    // component.EURmontant = 6
+    // expect(component.montantachatCrypto).toEqual(3)
+    // expect(component.PriceMtn).toEqual(2)
+    // expect(component.EURmontant).toEqual(component.montantachatCrypto * component.PriceMtn)
+    spyOn(component, 'receivinfo').and.callThrough();
+    component.receivinfo();
+    expect(component.receivinfo).toHaveBeenCalled();
   });
 
   it('test function SendCrypto', () => {
-    spyOn(component, 'SendCrypto');
-    expect(component.valuetoken).toEqual(undefined)
+    spyOn(component, 'SendCrypto').and.callThrough();
+    component.SendCrypto();
+    expect(component.SendCrypto).toHaveBeenCalled();
   });
 
-  it('test function deleteCrypto', () => {
-    spyOn(component, 'deleteCrypto');
-    component.deleteCrypto(0)
+
+  it('verif function delete crypto', () => {
+    const changes = 1
+    spyOn(component, 'deleteCrypto').and.callThrough();
+    component.deleteCrypto(changes);
     expect(component.deleteCrypto).toHaveBeenCalled();
-
   });
+
+
 });

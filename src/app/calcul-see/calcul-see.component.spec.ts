@@ -25,5 +25,6 @@ describe('CalculSeeComponent', () => {
 
   it('calcul size of screen', () => {
     expect(component.mobile).toEqual(false)
-  })
+  });
+
 });

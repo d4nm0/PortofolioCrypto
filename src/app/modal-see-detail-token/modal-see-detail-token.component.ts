@@ -11,6 +11,7 @@ import { Wallet } from '../models/wallet';
 })
 export class ModalSeeDetailTokenComponent implements OnInit {
   @Input() wallet: Wallet;
+  stop: boolean = false;
 
   constructor( public activeModal: NgbActiveModal, public db: AngularFireDatabase,private router: Router) { }
 
@@ -23,8 +24,8 @@ export class ModalSeeDetailTokenComponent implements OnInit {
 
   deleteCrypto(index: any){
     // console.log(index);
-    let stop = false;
-    if (!stop){
+    this.stop = false;
+    if (!this.stop){
       this.db.object('cryptoList/' + index).remove();
       setTimeout(() => {
         const currentRoute = this.router.url;
@@ -33,7 +34,7 @@ export class ModalSeeDetailTokenComponent implements OnInit {
             this.router.navigate([currentRoute]); // navigate to same route
         });
       },1500);
-      stop = true;
+      this.stop = true;
     }
 
   }

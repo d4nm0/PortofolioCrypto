@@ -57,4 +57,14 @@ describe('ModalSeeDetailTokenComponent', () => {
     expect(activeModal.dismiss).toHaveBeenCalled();
   });
 
+  it('verif function delete crypto', () => {
+    const changes = 1
+    spyOn(component, 'deleteCrypto').and.callThrough();
+    component.deleteCrypto(changes);
+    expect(component.deleteCrypto).toHaveBeenCalled();
+  });
+
+
+
+
 });
