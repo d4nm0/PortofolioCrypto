@@ -70,21 +70,18 @@ describe('MobilepageComponent', () => {
   });
 
   it('test function receivinfo', () => {
-    // spyOn(component, 'receivinfo');
-    // component.montantachatCrypto = 3
-    // component.PriceMtn = 2
-    // component.EURmontant = 6
-    // expect(component.montantachatCrypto).toEqual(3)
-    // expect(component.PriceMtn).toEqual(2)
-    // expect(component.EURmontant).toEqual(component.montantachatCrypto * component.PriceMtn)
-    component.selectToken = 'CAPS'
+    component.Amount = 1
+    component.selectToken = 'caps'
+
     spyOn(component, 'receivinfo').and.callThrough();
     component.receivinfo();
     expect(component.receivinfo).toHaveBeenCalled();
   });
 
   it('test function SendCrypto', () => {
-    component.selectToken = 'CAPS'
+    component.Amount = 1
+    component.selectToken = 'caps'
+
     spyOn(component, 'SendCrypto').and.callThrough();
     component.SendCrypto();
     expect(component.SendCrypto).toHaveBeenCalled();
