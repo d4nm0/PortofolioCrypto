@@ -38,4 +38,9 @@ Nous avons aussi utilisé "Coverage Angular" qui va nous permettre de savoir ave
 
 Il a une page HTML qui a été mise en place pour voir l'avancée des tests ainsi que leurs pourcentages avec des jauges, la page en question se nomme "index.html" et se trouve dans le dossier "Coverage" du projet. 
 L'ouvrir après le lancement du "ng test".
-![Optional Text](../lexbal/test_unit/img/coverage_angular.png)
+
+<img src="img/coverage_angular.PNG" width="350" title="hover text">
+
+![Optional Text](../lexbal/test_unit/img/coverage_angular.PNG)
+
+![alt text](https://github.com/d4nm0/PortofolioCrypto/blob/lexbal/test_unit/img/coverage_angular.PNG)
