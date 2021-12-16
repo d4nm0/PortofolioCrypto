@@ -21,11 +21,10 @@ describe('MobileLineComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Devrait créer le component', () => {
     expect(component).toBeTruthy();
   });
-  it('input var is ok', () => {
-    console.log(component.wallet)
-      expect(component.wallet.PriceMovement1d).toEqual(0)
+  it('Devrait vérifier que la variable "PriceMovement1d" est initialisée à 0', () => {
+    expect(component.wallet.PriceMovement1d).toEqual(0)
   });
 });

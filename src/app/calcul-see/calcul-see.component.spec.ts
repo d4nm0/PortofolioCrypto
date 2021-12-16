@@ -19,11 +19,11 @@ describe('CalculSeeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Devrait créer le component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('calcul size of screen', () => {
+  it('Devrait avoir la variable "mobile" initialisée à false', () => {
     expect(component.mobile).toEqual(false)
   });
 

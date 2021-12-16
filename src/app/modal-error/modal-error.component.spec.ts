@@ -19,11 +19,11 @@ describe('ModalErrorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Devrait créer le component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('input error is ok', () => {
+  it("Devrait vérifier que la variable "errormsg" est vide lors de l'initialisation", () => {
     expect(component.errormsg).toEqual(undefined)
   })
 });

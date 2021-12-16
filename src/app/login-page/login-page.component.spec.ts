@@ -38,34 +38,32 @@ describe('LoginPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Devrait créer le component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('register variable is ok', () => {
+  it('Devrait vérifier que la variable "Register" est initialisée à true', () => {
     expect(component.Register).toEqual(true)
   });
 
-  it('should get register state to true', () => {
+  it("Devrait vérifier que la variable 'Register' est à true apres l'appel de la fonction 'AlreadyRegister'", () => {
     component.AlreadyRegister();
     expect(component.Register).toBeTrue();
   });
 
-  it('should get register state to false', () => {
+  it("Devrait vérifier que la variable 'Register' est à false apres l'appel de la fonction 'NotRegister'", () => {
     component.NotRegister();
     expect(component.Register).toBeFalse();
   });
 
-  it('should call signup service', async () => {
+  it("Devrait vérifier l'appel de la fonction 'SignUp' de 'authService' dans la fonction 'sendNewUser' du component", async () => {
     spyOn(authService, 'SignUp');
-
     component.sendNewUser();
     expect(authService.SignUp).toHaveBeenCalled();
   });
 
-  it('should call login service', async () => {
+  it("Devrait vérifier l'appel de la fonction 'SignIn' de 'authService' dans la fonction 'LoginUser' du component", async () => {
     spyOn(authService, 'SignIn');
-
     component.LoginUser();
     expect(authService.SignIn).toHaveBeenCalled();
   });

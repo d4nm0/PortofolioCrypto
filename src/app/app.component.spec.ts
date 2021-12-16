@@ -33,29 +33,26 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('Devrait créer le component applicatif', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'PortofolioCrypto'`, () => {
+  it('Devrait vérifier que la balise "title" affiche "PortofolioCrypto"', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('PortofolioCrypto');
   });
 
-  it(`permitToNotify not allow`, () => {
+  it("Devrait vérifier que la variable 'displayToken' soit vide après l'appel de la fonction 'permitToNotify'", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.permitToNotify);
-    // console.log('bbbbbb'+app.displayToken)
+    app.permitToNotify();
     expect(app.displayToken).toEqual('')
   });
 
-  it(`test if var to verify define`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
+  it("Devrait vérifier que la variable 'email' du localStorage n'existe pas", () => {
     expect(localStorage.getItem('email')).toEqual(null)
   });
 

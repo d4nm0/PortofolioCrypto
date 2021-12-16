@@ -44,11 +44,11 @@ describe('AuthenticationService', () => {
   });
 
 
-  it('should be created', () => {
+  it('Devrait créer le component', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should be connected', async (done) => {
+  it("Devrait connecter l'utilisateur avec de bon identifiants", async (done) => {
     service.SignIn('test@test.com','testtest');
 
     service.afAuth.authState.subscribe(
@@ -61,7 +61,7 @@ describe('AuthenticationService', () => {
     );
   });
 
-  it('should be not connected', async (done) => {
+  it("Devrait rejeter l'utilisateur avec de mauvais identifiants", async (done) => {
     service.SignIn('testvdsvsdvsd@test.com','testsdvsdvsdvtest');
     
     service.afAuth.authState.subscribe(
