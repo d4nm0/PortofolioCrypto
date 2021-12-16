@@ -59,4 +59,20 @@ describe('AppComponent', () => {
     expect(localStorage.getItem('email')).toEqual(null)
   });
 
+  it(`permit to notify call`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    spyOn(app, 'permitToNotify').and.callThrough();
+    app.permitToNotify();
+    expect(app.permitToNotify).toHaveBeenCalled();
+  });
+
+  it(`oninit call`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    spyOn(app, 'ngOnInit').and.callThrough();
+    app.ngOnInit();
+    expect(app.ngOnInit).toHaveBeenCalled();
+  });
+
 });
